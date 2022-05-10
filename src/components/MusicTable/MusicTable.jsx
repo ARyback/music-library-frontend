@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import AddASong from '../AddASong/AddASong';
+import FilterBar from '../FilterBar/FilterBar';
 import axios from 'axios';
 
 
 const MusicTable = (props) => {
 
-    const [songs, setSongs] = useState([{}]);
+    const [songs, setSongs] = useState(null);
   
     useEffect(() => {
       getAllSongs();
@@ -27,7 +29,17 @@ const MusicTable = (props) => {
           </tr>
         </thead>
         <tbody>
-            {songs.map((song)=> {
+            {songs && songs
+            .filter(song=> 
+                song.title.toLowerCase().includes(props.userInput.toLowerCase()) ||
+                song.artist.toLowerCase().includes(props.userInput.toLowerCase()) ||
+                song.album.toLowerCase().includes(props.userInput.toLowerCase()) ||
+                song.release_date.toLowerCase().includes(props.userInput.toLowerCase()) ||
+                song.genre.toLowerCase().includes(props.userInput.toLowerCase()) 
+            ? song : null) 
+            // song=> === (song) => 
+            // Build a complete table with filtered data by all WOW!
+            .map((song)=> {
                 return (
                     <tr>
                         <td>{song.title}</td>
@@ -43,21 +55,4 @@ const MusicTable = (props) => {
     );
 }
 
-//     return (<div>
-
-//     const [songs, setSongs] = useState([]);
-  
-//     useEffect(() => {
-//       getAllSongs();
-//     }, []);
-  
-//     async function getAllSongs(){
-//       const response = await axios.get('http://127.0.0.1:8000/api/music/');
-//       console.log(response.data);
-//       setSongs(response.data)
-//     }
-// <button onClick={() => getAllSongs()}>Get All Songs</button>
-//     </div>);
-// }
- 
 export default MusicTable;

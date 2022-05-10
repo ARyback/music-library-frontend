@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 const FilterBar = (props) => {
-    return ( <div>This is a filter bar</div> );
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>All</label>
+            <label>Filter</label>
+        </form>
+    );
 }
  
 export default FilterBar;
