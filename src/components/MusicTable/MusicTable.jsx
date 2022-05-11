@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AddASong from '../AddASong/AddASong';
-import FilterBar from '../FilterBar/FilterBar';
 import axios from 'axios';
 
 

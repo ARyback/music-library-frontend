@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import NavigationBar from "./components/NavigationBar/NavigationBar";
 import SearchBar from "./components/SearchBar/SearchBar";
 import MusicTable from "./components/MusicTable/MusicTable";
 import axios from "axios";
-import FilterBar from './components/FilterBar/FilterBar';
 import AddASong from './components/AddASong/AddASong';
 
 function App() {
