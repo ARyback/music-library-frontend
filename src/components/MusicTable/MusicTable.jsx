@@ -6,11 +6,6 @@ import axios from 'axios';
 const MusicTable = (props) => {
 
     const [songs, setSongs] = useState(null);
-
-    function addNewSong(song) {
-      let tempSongs = [...songs, song];
-      setSongs(tempSongs);
-    }
   
     useEffect(() => {
       getAllSongs();
@@ -20,6 +15,7 @@ const MusicTable = (props) => {
       const response = await axios.get('http://127.0.0.1:8000/api/music/');
       setSongs(response.data)
     }
+
     
     return (
         <table>
@@ -55,7 +51,6 @@ const MusicTable = (props) => {
                 );
             })}
         </tbody>
-        <div><AddASong addNewSongProperty={addNewSong}/></div> 
       </table>
     );
 }

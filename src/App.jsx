@@ -17,7 +17,8 @@ function App() {
       <SearchBar userInput={userInput} setUserInput={setUserInput} handleChange={handleChange}/>
       <MusicTable userInput={userInput}/>
       <h2>Add a Song</h2>
-      {/* <AddASong /> may use setuserInput and form stuff either here or locally */}
+      <AddASong userInput={userInput} setUserInput={setUserInput} handleChange={handleChange}/> 
+      {/* may use setuserInput and form stuff either here or locally */}
     </div>
     );
 }
