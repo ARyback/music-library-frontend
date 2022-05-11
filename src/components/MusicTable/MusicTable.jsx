@@ -6,6 +6,11 @@ import axios from 'axios';
 const MusicTable = (props) => {
 
     const [songs, setSongs] = useState(null);
+
+    function addNewSong(song) {
+      let tempSongs = [...songs, song];
+      setSongs(tempSongs);
+    }
   
     useEffect(() => {
       getAllSongs();
@@ -46,10 +51,11 @@ const MusicTable = (props) => {
                         <td>{song.album}</td>
                         <td>{song.release_date}</td>
                         <td>{song.genre}</td>
-                    </tr>      
+                    </tr> 
                 );
             })}
         </tbody>
+        <div><AddASong addNewSongProperty={addNewSong}/></div> 
       </table>
     );
 }
