@@ -11,13 +11,15 @@ function App() {
     setUserInput(e.target.value);
   };
 
+  
+
   return (
     <div>
       <h1>Music Library</h1>
       <SearchBar userInput={userInput} setUserInput={setUserInput} handleChange={handleChange}/>
       <MusicTable userInput={userInput}/>
       <h2>Add a Song</h2>
-      <AddASong userInput={userInput} setUserInput={setUserInput} handleChange={handleChange}/> 
+      {/* <AddASong AddASong={addNewSong}/>  */}
       {/* may use setuserInput and form stuff either here or locally */}
     </div>
     );

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import AddASong from '../AddASong/AddASong';
 import axios from 'axios';
+import AddASong from '../AddASong/AddASong';
 
 
 const MusicTable = (props) => {
-
+    
     const [songs, setSongs] = useState(null);
-  
+
+    function addNewSong(song) {
+      let tempSongs = [...songs, song];
+      setSongs(tempSongs);
+    }
+
     useEffect(() => {
       getAllSongs();
     }, []);
@@ -16,7 +21,6 @@ const MusicTable = (props) => {
       setSongs(response.data)
     }
 
-    
     return (
         <table>
         <thead>
@@ -50,6 +54,7 @@ const MusicTable = (props) => {
                     </tr> 
                 );
             })}
+          <div><AddASong addNewSongProperty={addNewSong}/></div>
         </tbody>
       </table>
     );
