@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddASong from "../AddASong/AddASong";
+import DeleteASong from "../DeleteASong/DeleteASong";
 
 const MusicTable = (props) => {
   const [songs, setSongs] = useState(null);
@@ -56,6 +57,7 @@ const MusicTable = (props) => {
                     <td>{song.album}</td>
                     <td>{song.release_date}</td>
                     <td>{song.genre}</td>
+                    <td><DeleteASong/></td>
                   </tr>
                 );
               })}
@@ -65,6 +67,10 @@ const MusicTable = (props) => {
         <h2 className="center-form">Add a Song</h2>
         <AddASong getAllSongs={getAllSongs} />
       </div>
+      {/* <div>
+        <h2 className="center-form">Delete a Song</h2>
+        <DeleteASong getAllSongs={getAllSongs} />
+      </div> */}
     </>
   );
 };

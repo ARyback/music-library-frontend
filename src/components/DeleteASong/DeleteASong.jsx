@@ -2,18 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const DeleteASong = (props) => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    let response = await axios.delete('http://127.0.0.1:8000/api/music/10/'), {
-      title: title,
-      artist: artist,
-      album: album,
-      genre: genre,
-      release_date: releaseDate,
-    });
-    props.getAllSongs();
+
+  const [id, setId] = useState('');
+
+  const deletePost = async (event, id) => {
+    event.preventDefault(); 
+    setId = id;
+    let response = await axios.delete(`http://127.0.0.1:8000/api/music/${id}/`);
   };
-  return <div></div>;
+  return (
+  <div>
+      <button onClick={() => deletePost(id)}>Delete</button>
+  </div>
+  );
 };
 
 export default DeleteASong;

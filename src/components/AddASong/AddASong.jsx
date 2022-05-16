@@ -8,40 +8,6 @@ const AddASong = (props) => {
   const [genre, setGenre] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
 
-  // function handleSubmit(event) {
-  //     event.preventDefault();
-  //     let newSong = {
-  //     };
-  //     props.addNewSongProperty(newSong);
-  // }
-
-  // return (
-  //     <form onSubmit={handleSubmit}>
-  //         <div>
-  //             <label>Title</label>
-  //             <input type="text" value={title} onChange={(event)=> setTitle(event.target.value)} />
-  //         </div>
-  //         <div>
-  //             <label>Artist</label>
-  //             <input type="text" value={artist} onChange={(event)=> setArtist(event.target.value)} />
-  //         </div>
-  //         <div>
-  //             <label>Album</label>
-  //             <input type="text" value={album} onChange={(event)=> setAlbum(event.target.value)} />
-  //         </div>
-  //         <div>
-  //             <label>Genre</label>
-  //             <input type="text" value={genre} onChange={(event)=> setGenre(event.target.value)} />
-  //         </div>
-  //         <div>
-  //             <label>Release Date</label>
-  //             <input type="text" value={releaseDate} onChange={(event)=> setReleaseDate(event.target.value)} />
-  //         </div>
-  //         <button type="submit">Add</button>
-  //     </form>
-  //     );
-
-  // Attempting to Write A Post Request
   const handleSubmit = async (event) => {
     event.preventDefault();
     let response = await axios.post("http://127.0.0.1:8000/api/music/", {
